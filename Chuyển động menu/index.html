@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="awesome/fontawesome-free-6.5.2-web/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="click-menu" id="click-menu-open-and-out">
+        <a href="#Food" class="click-menu-1" onclick="toggleMenu('food-menu')">Food</a>
+        <div id="food-menu" class="dropdown-menu">
+            <a href="#SubItem1">Sub Item 1</a>
+            <a href="#SubItem2">Sub Item 2</a>
+        </div>
+        <a href="#About" class="click-menu-1" onclick="toggleMenu('about-menu')">About</a>
+        <div id="about-menu" class="dropdown-menu">
+            <a href="#SubItem3">Sub Item 3</a>
+            <a href="#SubItem4">Sub Item 4</a>
+        </div>
+    </nav>
+    <div class="header-MyFood">
+        <div class="header-MyFood-1">
+            <!-- <div class="button-menu" onclick="click_open()">
+                <i class="fa-solid fa-bars"></i>
+            </div> -->
+            <!-- <div class="Name-Shop">
+                My Food
+            </div>
+            <div class="Mail-right">
+                Mail
+            </div> -->
+        </div>
+    </div>
+    <div class="body-food"></div>
+    <div class="food"></div>
+</body>
+<script>
+    function click_open() {
+        var menu = document.getElementById("click-menu-open-and-out");
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
+        }
+    }
+
+    function toggleMenu(menuId) {
+        var menu = document.getElementById(menuId);
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
+        }
+    }
+
+    // Đóng menu khi click ra ngoài
+    window.onclick = function(event) {
+        if (!event.target.matches('.click-menu-1')) {
+            var dropdowns = document.getElementsByClassName("dropdown-menu");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.style.display === "block") {
+                    openDropdown.style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+</html>
